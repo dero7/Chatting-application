@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   VStack,
   FormControl,
@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { ChatState } from "../../Context/ChatProvider";
 
 const Signup = () => {
   const [show1, setShow1] = useState(false);
@@ -25,6 +26,7 @@ const Signup = () => {
   const toast = useToast();
 
   const history = useHistory();
+  const { setUser } = ChatState();
 
   const handleClick1 = () => setShow1(!show1);
   const handleClick2 = () => setShow2(!show2);
@@ -113,9 +115,10 @@ const Signup = () => {
         isClosable: true,
         position: "bottom",
       });
+      setUser(data);
       localStorage.setItem("userInfo", JSON.stringify(data));
-      setLoading(false);
       history.push("/chats");
+      setLoading(false);
     } catch (error) {
       toast({
         title: "Error Occured!",
