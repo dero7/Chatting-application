@@ -20,7 +20,12 @@ import io from "socket.io-client";
 import Lottie from "react-lottie";
 import animationData from "../animation/typing.json";
 
-const ENDPOINT = "http://localhost:5000";
+//use this when this is deployed
+const ENDPOINT = "https://chit-chat-rqsd.onrender.com";
+
+//use this when working in local host
+// const ENDPOINT = "http://localhost:5000";
+
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
