@@ -121,7 +121,7 @@ const SideDrawer = () => {
     }
   };
   return (
-    <div>
+    <>
       <Box
         display="flex"
         justifyContent="space-between"
@@ -216,7 +216,7 @@ const SideDrawer = () => {
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-    </div>
+    </>
   );
 };
 
